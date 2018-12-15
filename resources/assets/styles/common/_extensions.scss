@@ -1,0 +1,19 @@
+.hero {
+  .hero-head {
+    padding-top: 2rem;
+  }
+
+  .hero-body {
+    h1 {
+      @extend .title;
+    }
+
+    h3 {
+      @extend .subtitle;
+    }
+  }
+
+  .hero-footer {
+    padding-bottom: 2rem;
+  }
+}
