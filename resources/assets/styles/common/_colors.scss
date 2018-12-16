@@ -6,7 +6,7 @@ $d: #033649; // "Acqua Profanda"
 $e: #031634; // "Abisso"
 
 // Setting the default colors in Bulma
-$primary: $c;
+$primary: darken($c, 5%);
 $link: $c;
 $info: $d;
 $success: $c;

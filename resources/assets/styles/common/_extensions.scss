@@ -6,6 +6,7 @@
   .hero-body {
     h1 {
       @extend .title;
+      @extend .is-1;
     }
 
     h3 {

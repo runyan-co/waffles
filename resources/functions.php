@@ -8,6 +8,17 @@ use Roots\Sage\Config;
 use Roots\Sage\Container;
 
 /**
+ * Functions used in the theme itself
+ */
+function validate( $x, $y = '' ) {
+    if ( ! empty( $x ) ) :
+        return $x;
+    else :
+        return $y;
+    endif;
+}
+
+/**
  * Helper function for prettying up errors
  * @param string $message
  * @param string $subtitle
