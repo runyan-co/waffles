@@ -6,6 +6,13 @@ use Roots\Sage\Container;
 use Roots\Sage\Assets\JsonManifest;
 use Roots\Sage\Template\Blade;
 use Roots\Sage\Template\BladeProvider;
+use App\Controllers\ACF;
+
+/**
+ * Register ACF fields
+ */
+$Register = new ACF\Register();
+$Register->Register();
 
 /**
  * Deregister unneeded default WordPress styles

@@ -1,4 +1,4 @@
-@extends('layouts.full-width')
+@extends('layouts.app')
 
 @section('content')
   @include('partials.navigation', [

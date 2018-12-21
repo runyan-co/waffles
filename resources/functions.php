@@ -6,6 +6,7 @@
 
 use Roots\Sage\Config;
 use Roots\Sage\Container;
+use App\Controllers\ACF;
 
 /**
  * Functions used in the theme itself
@@ -16,6 +17,13 @@ function validate( $x, $y = '' ) {
     else :
         return $y;
     endif;
+}
+
+/**
+ * Return the value of constants used as the key value for ACF fields
+ */
+function returnKeysClass() {
+    return new ACF\Register;
 }
 
 /**

@@ -1,6 +1,6 @@
-@extends('layouts.full-width')
+@extends('layouts.app')
+
 @section('content')
-  @include('partials.navigation')
   @while(have_posts()) @php the_post() @endphp
     
     @php

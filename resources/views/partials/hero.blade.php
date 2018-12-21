@@ -1,36 +1,31 @@
 @php
 
-/**
- * Full-width hero template
- * 
- * @param $is_fullheight bool
- * @param $hero_classes mixed
- * @param $include_header bool
- * @param $include_footer bool
- */
-$is_fullheight = ! empty( $is_fullheight ) && $is_fullheight ? ' is-fullheight' : '';
-$hero_classes = ! empty( $hero_classes ) ? 'hero ' . $hero_classes . $is_fullheight : 'hero';
-$include_header = ! empty( $include_header ) ? $include_header : false;
-$include_footer = ! empty( $include_footer ) ? $include_footer : false;
+    // Initialize these variables
+    $hero_color = $hero_image = $hero_height = $hero_content = '';
 
-/**
- * ACF fields for actual content
- */
-// Hero header content
-$hero_header_content = get_field('field_5c15527db1759');
-// Primary header content
-$hero_body_content = get_field('field_5c155227b1757');
-// Hero footer content
-$hero_footer_content = get_field('field_5c15529f0bd5d'); @endphp
+    if( have_rows( 'content' ) ) {
+        while ( have_rows( 'content' ) ) : the_row();
+            if( get_row_layout() == 'full_width_hero' ) :
 
-<!-- Begin Hero -->
-<section class="{{ $hero_classes }} has-text-centered">
-@if( $include_header )
-@include('partials.hero.content-head', [ 'hero_header_content' => $hero_header_content ])
-@endif
-@include('partials.hero.content-body')
-@if( $include_footer )
-@include('partials.hero.content-footer', [ 'hero_footer_content' => $hero_footer_content ])
-@endif
-</section>
-<!-- End Hero -->
+                $inst = returnKeysClass();
+
+                $hero_color = get_sub_field( $inst::FWH_BackgroundColor_Key );
+                $hero_image = get_sub_field( $inst::FWH_BackgroundImage_Key );
+                $hero_height = get_sub_field( $inst::FWH_HeightSetting_Key );
+                $hero_content = get_sub_field( $inst::FWH_Content_Key );
+
+                $html = '<section class="hero is-medium is-primary" style="background-color: ' . $hero_color . '">' . "\n";
+                $html .= '<div class="hero-body">' . "\n";
+                $html .= '<div class="container">' . "\n";
+                $html .= $hero_content . "\n";
+                $html .= '</div>' . "\n";
+                $html .= '</div>' . "\n";
+                $html .= '</section>' . "\n";
+                
+                return print $html;
+
+            endif;
+        endwhile;
+    }
+
+@endphp

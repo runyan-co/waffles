@@ -4,9 +4,7 @@
  */
 use App\Controllers;
 
-$navbar_background_type = validate( $navbar_background_type, 'is-primary is-bold' );
-
-@endphp
+$navbar_background_type = validate( $navbar_background_type, 'is-primary is-bold' ); @endphp
 <nav class="navbar {{ $navbar_background_type }}" role="navigation">
   <div class="container">
   <div class="navbar-brand">
